@@ -1,0 +1,11 @@
+
+.wp_grid{
+    text-align: center
+}
+
+#wp_grid{
+    display: inline-block;
+    max-width:90vw;
+    max-height:90vh;
+}
+

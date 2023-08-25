@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr-fr" dir="ltr">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+
+		<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+		<script src="js/app.js"></script>
+		<script src="js/pdfkit_sa.js"></script>
+		<script src="js/svg-to-pdfkit.js"></script>
+
+		<style>
+			.wp_grid{
+				text-align: center
+			}
+
+			#wp_grid{
+				display: inline-block;
+				max-width:90vw;
+				max-height:90vh;
+			}
+
+		</style>
+	</head>
+	<body class="p-5">
+
+		<div>
+
+			<div>
+				<form>
+					
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="flexRadioDefault" id="wp_grid_fr" checked>
+						<label class="form-check-label" for="wp_grid_fr">
+						Français
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="flexRadioDefault" id="wp_grid_en">
+						<label class="form-check-label" for="wp_grid_en">
+						Anglais
+						</label>
+					</div>
+					
+					<div class="form-color d-inline-block">
+						<label for="wp_grid_bg_color" class="form-label">Arrière-plan</label>
+						<input type="color" class="form-control form-control-color" id="wp_grid_bg_color" value="#f4f1ec">
+					</div>
+
+					<div class="form-color d-inline-block">
+						<label for="wp_grid_border_color" class="form-label">Bordure</label>
+						<input type="color" class="form-control form-control-color" id="wp_grid_border_color" value="#4b2626">
+					</div>
+
+					<div class="form-color d-inline-block">
+						<label for="wp_grid_icon_color" class="form-label">Icônes</label>
+						<input type="color" class="form-control form-control-color" id="wp_grid_icon_color" value="#4b2626">
+					</div>
+
+					<div class="form-color d-inline-block">
+						<label for="wp_grid_text_color" class="form-label">Texte</label>
+						<input type="color" class="form-control form-control-color" id="wp_grid_text_color" value="#4b2626">
+					</div>
+
+					
+					<div class="d-inline-block">
+						<button class="form-control" type="button" onclick="exportToPdf(true)">Exporter en A3</button>
+					</div>
+
+				  </form>
+			</div>
+
+
+			<div class="wp_grid">
+				<object id="wp_grid" data="wp_grid.svg" type="image/svg+xml"></object>
+			</div>
+
+		</div>
+		
+	</body>
+</html>
