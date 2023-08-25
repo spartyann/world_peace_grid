@@ -6,7 +6,7 @@
 	<authorEmail>yann@anirata.fr</authorEmail>
 	<authorUrl>https://www.anirata.fr</authorUrl>
 	<license>MIT</license>
-	<version>1.0</version>
+	<version>1.1</version>
 	<description></description>
 	<namespace path="src">Joomla\Module\AnirataWPGrid</namespace>
 	<files>
@@ -18,5 +18,12 @@
 		<folder>img</folder>
 		<folder>js</folder>
 	</media>
-
+	<config>
+		<fields name="params">
+		   <fieldset name="basic">
+				<field name="grid_max_width" type="text" default="80vw" label="Largeur maximum (px, %, vw)" description="" />
+				<field name="grid_max_height" type="text" default="75vh" label="Hauteur maximum (px, %, vh)" description="" />
+		   </fieldset>
+	   </fields>
+   </config>
 </extension>
