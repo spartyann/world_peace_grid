@@ -88,7 +88,8 @@ function exportToPdf(a3 = false)
 
 $(() => {
 	$('#wp_grid').ready(() => { updateGrid(); })
-	setTimeout(updateGrid, 500);
+	setTimeout(updateGrid, 100);
+	setTimeout(updateGrid, 1000);
 
 	$("#wp_grid_fr, #wp_grid_en, #wp_grid_bg_color, #wp_grid_border_color, #wp_grid_icon_color, #wp_grid_text_color").change(updateGrid);
 	$("#wp_grid_bg_color, #wp_grid_border_color, #wp_grid_icon_color, #wp_grid_text_color").on('input',updateGrid);
