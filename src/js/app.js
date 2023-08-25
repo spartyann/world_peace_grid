@@ -25,44 +25,46 @@ function updateGrid() {
 	$svgObject.find("#texts>g>g>path").css("fill", text_color);
 }
 
-function exportToPdf(a3 = true)
+function exportToPdf(a3 = false)
 {
+	let preview = false;
 	let svg = $(document.getElementById('wp_grid').contentDocument).find("svg")[0].outerHTML;
+	const gridWidhCm =$("#wp_grid_size").val();
 
-	console.log(svg);
+	const doc = new window.PDFDocument({size: a3 ? 'A3' : 'A4'});
+	const pageWidth = a3 ? 29.7 : 21;
+	const pageHeight = a3 ? 42 : 29.7;
 
-
-	const doc = new window.PDFDocument();
 	const chunks = [];
 	const stream = doc.pipe({
 		// writable stream implementation
 		write: (chunk) => chunks.push(chunk),
 		end: () => {
-			/*const pdfBlob = new Blob(chunks, {
-				type: 'application/octet-stream'
-			});
-			var blobUrl = URL.createObjectURL(pdfBlob);
-			window.open(blobUrl);*/
 
-			const pdfBlob = new Blob(chunks, {
-				type: 'application/pdf'
-			});
-			var blobUrl = URL.createObjectURL(pdfBlob);
-			window.open(blobUrl);
+			if (preview)
+			{
+				const pdfBlob = new Blob(chunks, {
+					type: 'application/pdf'
+					//type: 'application/octet-stream'
+				});
+				var blobUrl = URL.createObjectURL(pdfBlob);
+				window.open(blobUrl);
+			}
+			else
+			{
+				const a = document.createElement("a");
+				const pdfBlob = new Blob(chunks, {
+					type: 'application/pdf'
+					//type: 'application/octet-stream'
+				});
+				a.href = URL.createObjectURL(pdfBlob);
 
-			/*
-			const a = document.createElement("a");
-			const pdfBlob = new File(chunks, "text.pdf", {
-				//type: 'application/octet-stream'
-				type: 'application/pdf'
-			});
-			a.href = URL.createObjectURL(pdfBlob);
-
-			a.setAttribute("download", "world_peace_grid.pdf");
-			a.setAttribute("target", "_blank");
-			document.body.appendChild(a);
-			a.click();
-			document.body.removeChild(a);*/
+				a.setAttribute("download", "world_peace_grid_" + (a3 ? "A3": "A4") + "_" + gridWidhCm + "cm.pdf");
+				a.setAttribute("target", "_blank");
+				document.body.appendChild(a);
+				a.click();
+				document.body.removeChild(a);
+			}
 		},
 
 		// readable streaaam stub iplementation
@@ -71,7 +73,14 @@ function exportToPdf(a3 = true)
 		emit: (...args) => {},
 	});
 
-	window.SVGtoPDF(doc, svg, 0, 0);
+	// 2.54cm = 25.4mm = 72pt
+	const ptToCm = 72 / 2.54;
+
+	
+
+	window.SVGtoPDF(doc, svg, (pageWidth - gridWidhCm) / 2 * ptToCm, 0, {
+		width: gridWidhCm * ptToCm
+	});
 
 	doc.end();
 }
@@ -82,6 +91,7 @@ $(() => {
 	setTimeout(updateGrid, 500);
 
 	$("#wp_grid_fr, #wp_grid_en, #wp_grid_bg_color, #wp_grid_border_color, #wp_grid_icon_color, #wp_grid_text_color").change(updateGrid);
+	$("#wp_grid_bg_color, #wp_grid_border_color, #wp_grid_icon_color, #wp_grid_text_color").on('input',updateGrid);
 
 })
 
