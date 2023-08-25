@@ -5,6 +5,18 @@ defined('_JEXEC') or die;
 
 ?>
 
+<style>
+	.wp_grid{
+		text-align: center
+	}
+
+	#wp_grid{
+		display: inline-block;
+		max-width:80vw;
+		max-height:75vh;
+	}
+
+</style>
 
 <div>
 	<form>
@@ -46,7 +58,7 @@ defined('_JEXEC') or die;
 
 		
 		<div class="d-inline-block m-2">
-			<p>Taille de la grille dans le PDF (en cm): <input id="wp_grid_size" type="number" class="form-control d-inline" style="width: 70px" min="2" max="50" value="27"/></p>
+			<p>Taille de la grille dans le PDF (en cm): <input id="wp_grid_size" type="number" class="form-control d-inline" style="width: 70px" min="2" max="50" value="20"/></p>
 			<button class="btn btn-primary" type="button" onclick="exportToPdf(false)">Exporter en PDF A4</button>
 			<button class="btn btn-primary" type="button" onclick="exportToPdf(true)">Exporter en PDF A3</button>
 		</div>
