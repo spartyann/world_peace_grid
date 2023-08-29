@@ -9,7 +9,7 @@ use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\Factory;
 
 $document = Factory::getDocument();
-$document->addScript('/media/mod_anirata_wp_grid/js/app.js?v=1.3');
+$document->addScript('/media/mod_anirata_wp_grid/js/app.js?v=1.4');
 $document->addScript('/media/mod_anirata_wp_grid/js/pdfkit_sa.js');
 $document->addScript('/media/mod_anirata_wp_grid/js/svg-to-pdfkit.js');
 

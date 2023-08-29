@@ -39,10 +39,10 @@ function exportToPdf(a3 = false)
 {
 	let preview = false;
 	let svg = $(document.getElementById('wp_grid').contentDocument).find("svg")[0].outerHTML;
-	let gridWidhCm =$("#wp_grid_size").val();
+	let gridWidhCmInput =$("#wp_grid_size").val();
 
 	// Add 2% to includebackground arround
-	gridWidhCm = gridWidhCm * 1.04;
+	let gridWidhCm = gridWidhCmInput * 1.04;
 
 	const doc = new window.PDFDocument({size: a3 ? 'A3' : 'A4'});
 	const pageWidth = a3 ? 29.7 : 21;
@@ -72,7 +72,7 @@ function exportToPdf(a3 = false)
 				});
 				a.href = URL.createObjectURL(pdfBlob);
 
-				a.setAttribute("download", "world_peace_grid_" + (a3 ? "A3": "A4") + "_" + gridWidhCm + "cm.pdf");
+				a.setAttribute("download", "world_peace_grid_" + (a3 ? "A3": "A4") + "_" + gridWidhCmInput + "cm.pdf");
 				a.setAttribute("target", "_blank");
 				document.body.appendChild(a);
 				a.click();
