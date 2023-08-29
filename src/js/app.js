@@ -23,13 +23,26 @@ function updateGrid() {
 
 	let text_color = $("#wp_grid_text_color").val();
 	$svgObject.find("#texts>g>g>path").css("fill", text_color);
+
+
+	let wp_grid_wood_arround = $("#wp_grid_wood_arround").is( ":checked" );
+	if (wp_grid_wood_arround) { $svgObject.find("#background_arround").hide() }
+	else { $svgObject.find("#background_arround").show(); }
+
+	let wp_grid_wood = $("#wp_grid_wood").val();
+	$svgObject.find("#background_wood>use").css("opacity", wp_grid_wood/100)
+
+	
 }
 
 function exportToPdf(a3 = false)
 {
 	let preview = false;
 	let svg = $(document.getElementById('wp_grid').contentDocument).find("svg")[0].outerHTML;
-	const gridWidhCm =$("#wp_grid_size").val();
+	let gridWidhCm =$("#wp_grid_size").val();
+
+	// Add 2% to includebackground arround
+	gridWidhCm = gridWidhCm * 1.04;
 
 	const doc = new window.PDFDocument({size: a3 ? 'A3' : 'A4'});
 	const pageWidth = a3 ? 29.7 : 21;
@@ -76,7 +89,6 @@ function exportToPdf(a3 = false)
 	// 2.54cm = 25.4mm = 72pt
 	const ptToCm = 72 / 2.54;
 
-	
 
 	window.SVGtoPDF(doc, svg, (pageWidth - gridWidhCm) / 2 * ptToCm, 0, {
 		width: gridWidhCm * ptToCm
@@ -91,8 +103,8 @@ $(() => {
 	setTimeout(updateGrid, 100);
 	setTimeout(updateGrid, 1000);
 
-	$("#wp_grid_fr, #wp_grid_en, #wp_grid_bg_color, #wp_grid_border_color, #wp_grid_icon_color, #wp_grid_text_color").change(updateGrid);
-	$("#wp_grid_bg_color, #wp_grid_border_color, #wp_grid_icon_color, #wp_grid_text_color").on('input',updateGrid);
+	$("#wp_grid_fr, #wp_grid_en, #wp_grid_bg_color, #wp_grid_border_color, #wp_grid_icon_color, #wp_grid_text_color, #wp_grid_wood_arround, #wp_grid_wood").change(updateGrid);
+	$("#wp_grid_bg_color, #wp_grid_border_color, #wp_grid_icon_color, #wp_grid_text_color, #wp_grid_wood").on('input',updateGrid);
 
 })
 
