@@ -1,16 +1,22 @@
 
 
 function updateGrid() {
-	let isFr = $("#wp_grid_fr")[0].checked;
-	let isEn = !isFr;
+	let isEn = $("#wp_grid_en")[0].checked;
+	let isFr1 = $("#wp_grid_fr_1")[0].checked;
+	let isFr2 = $("#wp_grid_fr_2")[0].checked;
 
 	let svgObject = document.getElementById('wp_grid').contentDocument;
 	if (svgObject == null) return; // Not loaded
 
 	let $svgObject = $(svgObject);
 
-	if (isEn) { $svgObject.find("#text_fr").hide(); $svgObject.find("#text_en").show() };
-	if (isFr) { $svgObject.find("#text_en").hide(); $svgObject.find("#text_fr").show() };
+	$svgObject.find("#text_en").hide();
+	$svgObject.find("#text_fr_1").hide();
+	$svgObject.find("#text_fr_2").hide();
+
+	if (isEn) { $svgObject.find("#text_en").show() };
+	if (isFr1) { $svgObject.find("#text_fr_1").show() };
+	if (isFr2) { $svgObject.find("#text_fr_2").show() };
 
 	let bg_color = $("#wp_grid_bg_color").val();
 	$svgObject.find("#background>path").css("fill", bg_color);
@@ -103,9 +109,8 @@ $(() => {
 	setTimeout(updateGrid, 100);
 	setTimeout(updateGrid, 1000);
 
-	$("#wp_grid_fr, #wp_grid_en, #wp_grid_bg_color, #wp_grid_border_color, #wp_grid_icon_color, #wp_grid_text_color, #wp_grid_wood_arround, #wp_grid_wood").change(updateGrid);
+	$("#wp_grid_fr_1, #wp_grid_fr_2, #wp_grid_en, #wp_grid_bg_color, #wp_grid_border_color, #wp_grid_icon_color, #wp_grid_text_color, #wp_grid_wood_arround, #wp_grid_wood").change(updateGrid);
 	$("#wp_grid_bg_color, #wp_grid_border_color, #wp_grid_icon_color, #wp_grid_text_color, #wp_grid_wood").on('input',updateGrid);
-
 })
 
 

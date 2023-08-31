@@ -23,16 +23,22 @@ $maxH = $params->get('grid_max_height');
 
 <div class="align-top">
 	<div class="align-top d-inline-block m-2">
-		<div class="form-check">
-			<input class="form-check-input" type="radio" name="flexRadioDefault" id="wp_grid_fr" checked>
-			<label class="form-check-label" for="wp_grid_fr">
-			Français
+		<div class="form-check" title="May the followers of all religions and spiritual paths work together to create peace among all people on earth.">
+			<input class="form-check-input" type="radio" name="wp_grid_lang" id="wp_grid_en" checked>
+			<label class="form-check-label" for="wp_grid_en">
+			Anglais (conseillé)
 			</label>
 		</div>
-		<div class="form-check">
-			<input class="form-check-input" type="radio" name="flexRadioDefault" id="wp_grid_en">
-			<label class="form-check-label" for="wp_grid_en">
-			Anglais
+		<div class="form-check" title="Puissent toutes les personnes qui suivent un chemin spirituel ou religieux travailler ensemble pour apporter la paix à tous les peuples de la Terre.">
+			<input class="form-check-input" type="radio" name="wp_grid_lang" id="wp_grid_fr_1">
+			<label class="form-check-label" for="wp_grid_fr_1">
+			Français 1
+			</label>
+		</div>
+		<div class="form-check" title="Puissent toutes les personnes qui suivent un chemin spirituel ou religieux œuvrer ensemble pour apporter la paix sur la Terre.">
+			<input class="form-check-input" type="radio" name="wp_grid_lang" id="wp_grid_fr_2">
+			<label class="form-check-label" for="wp_grid_fr_2">
+			Français 2
 			</label>
 		</div>
 	</div>
@@ -84,5 +90,5 @@ $maxH = $params->get('grid_max_height');
 
 
 <div class="wp_grid">
-	<object id="wp_grid" data="/media/mod_anirata_wp_grid/img/wp_grid.svg?v=1.4" type="image/svg+xml"></object>
+	<object id="wp_grid" data="/media/mod_anirata_wp_grid/img/wp_grid.svg?v=1.5" type="image/svg+xml"></object>
 </div>
