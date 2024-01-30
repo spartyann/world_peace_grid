@@ -6,3 +6,5 @@ Le fait d'ouvrir le fichier directement dans un navigateur provoque des erreurs 
 ```
 <object id="wp_grid" data="wp_grid.svg" type="image/svg+xml"></object>
 ```
+
+Vous pouvez la tester ici: https://www.anirata.fr/article/reiki/grille-de-cristaux-pour-la-paix-mondiale
