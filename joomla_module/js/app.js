@@ -6,7 +6,11 @@ function updateGrid() {
 	let isFr2 = $("#wp_grid_fr_2")[0].checked;
 
 	let svgObject = document.getElementById('wp_grid').contentDocument;
-	if (svgObject == null) return; // Not loaded
+	if (svgObject == null)
+	{
+		setTimeout(updateGrid, 500);
+		return; // Not loaded
+	}
 
 	let $svgObject = $(svgObject);
 
@@ -106,8 +110,6 @@ function exportToPdf(a3 = false)
 
 $(() => {
 	$('#wp_grid').ready(() => { updateGrid(); })
-	setTimeout(updateGrid, 100);
-	setTimeout(updateGrid, 1000);
 
 	$("#wp_grid_fr_1, #wp_grid_fr_2, #wp_grid_en, #wp_grid_bg_color, #wp_grid_border_color, #wp_grid_icon_color, #wp_grid_text_color, #wp_grid_wood_arround, #wp_grid_wood").change(updateGrid);
 	$("#wp_grid_bg_color, #wp_grid_border_color, #wp_grid_icon_color, #wp_grid_text_color, #wp_grid_wood").on('input',updateGrid);
