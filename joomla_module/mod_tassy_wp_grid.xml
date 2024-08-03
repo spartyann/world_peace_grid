@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="4.0" client="site" method="upgrade">
-	<name>Anirata World Peace Grid</name>
+	<name>World Peace Grid</name>
 	<creationDate>2023-08-25</creationDate>
 	<author>Yann Tassy</author>
-	<authorEmail>yann@anirata.fr</authorEmail>
-	<authorUrl>https://www.anirata.fr</authorUrl>
+	<authorEmail>contact@yanntassy.fr</authorEmail>
+	<authorUrl>https://www.yanntassy.fr</authorUrl>
 	<license>MIT</license>
 	<version>1.6</version>
 	<description></description>
-	<namespace path="src">Joomla\Module\AnirataWPGrid</namespace>
+	<namespace path="src">Joomla\Module\TassyWPGrid</namespace>
 	<files>
-		<filename module="mod_anirata_wp_grid">mod_anirata_wp_grid.php</filename>
+		<filename module="mod_tassy_wp_grid">mod_tassy_wp_grid.php</filename>
 		<folder>tmpl</folder>
-		<filename>mod_anirata_wp_grid.xml</filename>
+		<filename>mod_tassy_wp_grid.xml</filename>
 	</files>
-	<media folder="media" destination="mod_anirata_wp_grid">
+	<media folder="media" destination="mod_tassy_wp_grid">
 		<folder>img</folder>
 		<folder>js</folder>
 	</media>

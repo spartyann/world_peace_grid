@@ -90,5 +90,5 @@ $maxH = $params->get('grid_max_height');
 
 
 <div class="wp_grid">
-	<object id="wp_grid" data="/media/mod_anirata_wp_grid/img/wp_grid.svg?v=1.5" type="image/svg+xml"></object>
+	<object id="wp_grid" data="/media/mod_tassy_wp_grid/img/wp_grid.svg?v=1.5" type="image/svg+xml"></object>
 </div>
